@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react'
+import axios from 'axios'
 
 class PlansContainer extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class PlansContainer extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3001.api/v1/plans.json')
+    axios.get('http://localhost:3001/api/v1/plans.json')
     .then(response => {
       console.log(response)
       this.setState({plans: response.data})
@@ -19,8 +19,16 @@ class PlansContainer extends Component {
   }
   render() {
     return (
-      <div className="">
-        Plans
+      <div>
+        {this.state.plans.map((plan) => {
+          return (
+            <div className="title" key={plan.id}>
+              <h4>{plan.title}</h4>
+              <p>{plan.body}</p>
+            </div>
+          )
+          
+        })}
       </div>
     );
   }
