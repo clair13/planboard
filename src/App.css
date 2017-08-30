@@ -1,9 +1,6 @@
-.App {
-  text-align: center;
-}
-
 
 .App-header {
+  text-align: center;
   height: 150px;
   padding: 20px;
 }
@@ -12,7 +9,7 @@
   font-size: large;
 }
 
-.title {
+.tile {
   height: 150px;
   width: 150px;
   margin: 10px;
@@ -20,4 +17,15 @@
   float: left;
   font-size: 11px;
   text-align: left;
+}
+
+.newPlanButton {
+  background: darkblue;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding:10px;
 }

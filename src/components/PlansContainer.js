@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Plan from './Plan'
 
 class PlansContainer extends Component {
   constructor(props) {
@@ -12,7 +13,6 @@ class PlansContainer extends Component {
   componentDidMount() {
     axios.get('http://localhost:3001/api/v1/plans.json')
     .then(response => {
-      console.log(response)
       this.setState({plans: response.data})
     })
     .catch(error => console.log(error))
@@ -20,14 +20,15 @@ class PlansContainer extends Component {
   render() {
     return (
       <div>
+        <div>
+          <button className="newPlanButton">
+            New Plan
+          </button>
+        </div>
         {this.state.plans.map((plan) => {
           return (
-            <div className="title" key={plan.id}>
-              <h4>{plan.title}</h4>
-              <p>{plan.body}</p>
-            </div>
+            <Plan plan={plan} key={plan.id} />
           )
-          
         })}
       </div>
     );
