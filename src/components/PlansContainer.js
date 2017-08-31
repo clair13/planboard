@@ -17,11 +17,19 @@ class PlansContainer extends Component {
     })
     .catch(error => console.log(error))
   }
+
+  addNewPlan = () => {
+    axios.post('http://localhost:3001/api/v1/plans', {plan: {title: '', body: ''}})
+      .then(response => {
+        console.log(response) })
+      .catch(error => console.log(error))
+  }
+  
   render() {
     return (
       <div>
         <div>
-          <button className="newPlanButton">
+          <button className="newPlanButton" onClick={this.addNewPlan} >
             New Plan
           </button>
         </div>
