@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Plan from './Plan'
+import PlanForm from './PlanForm'
 import update from 'immutability-helper'
 
 class PlansContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      plans: []
+      plans: [],
+      editingPlanId: null
     }
   }
 
@@ -24,7 +26,7 @@ class PlansContainer extends Component {
       .then(response => {
         console.log(response)
         const plans =update(this.state.plans, {$splice: [[0, 0, response.data]]})
-        this.setState({plans: plans })
+        this.setState({plans: plans, editingPlanId: response.data.id })
       })
       .catch(error => console.log(error))
   }
@@ -38,9 +40,11 @@ class PlansContainer extends Component {
           </button>
         </div>
         {this.state.plans.map((plan) => {
-          return (
-            <Plan plan={plan} key={plan.id} />
-          )
+          if(this.state.editingPlanId === plan.id) {
+            return(<PlanForm plan={plan} key={plan.id} />)
+          } else {
+          return (<Plan plan={plan} key={plan.id} />
+          }
         })}
       </div>
     );
