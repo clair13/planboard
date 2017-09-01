@@ -43,7 +43,7 @@ class PlansContainer extends Component {
           if(this.state.editingPlanId === plan.id) {
             return(<PlanForm plan={plan} key={plan.id} />)
           } else {
-          return (<Plan plan={plan} key={plan.id} />
+          return (<Plan plan={plan} key={plan.id} />)
           }
         })}
       </div>
