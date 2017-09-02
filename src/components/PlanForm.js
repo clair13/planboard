@@ -21,6 +21,7 @@ class PlanForm extends Component {
         )
       .then(response => {
         console.log(response)
+        this.props.updatePlan(response.data)
        })
       .catch(error => console.log(error))
   }
@@ -29,9 +30,9 @@ class PlanForm extends Component {
 		return (
 			<div className="tile">
 			  <form onBlur={this.handleBlur} >
-			    <input className='input' type="text" name="title" placeholder='Enter a Title'
-			    value={this.state.title} onChange={this.handleInput} />
-			    <textarea className='input' name="body" placeholder='Describe your plan'>
+			    <input className="input" type="text" name="title" placeholder="Enter a Title"
+			    value={this.state.title}  onChange={this.handleInput} />
+			    <textarea className="input" name="body" placeholder="Describe your plan">
 			    value={this.state.body} onChange={this.handleInput}</textarea>
 			  </form>
 			</div>

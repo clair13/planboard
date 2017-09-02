@@ -31,6 +31,14 @@ class PlansContainer extends Component {
       .catch(error => console.log(error))
   }
 
+  updatePlan = (plan) => {
+    const planIndex = this.state.plans.findIndex(x => x.id === plan.id)
+    const plans = update(this.state.plans, {[planIndex]: {$set: plan }})
+    this.setState({plans: plans, notification: 'All changes saved'})
+  }
+
+  resetNotification = () => {this.setState({notification: ''})}
+
   render() {
     return (
       <div>
@@ -38,10 +46,14 @@ class PlansContainer extends Component {
           <button className="newPlanButton" onClick={this.addNewPlan} >
             New Plan
           </button>
+          <span className="notification">
+            {this.state.notification}
+          </span>
         </div>
         {this.state.plans.map((plan) => {
           if(this.state.editingPlanId === plan.id) {
-            return(<PlanForm plan={plan} key={plan.id} />)
+            return(<PlanForm plan={plan} key={plan.id} updatePlan={this.updatePlan}
+                   resetNotification={this.resetNotification} />)
           } else {
           return (<Plan plan={plan} key={plan.id} />)
           }
