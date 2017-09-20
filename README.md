@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Single app that connects with [Plan-API](https://github.com/clair13/plan)
-# App built with Reactjs for creating editing and destroying plans .
+### App built with Reactjs for creating editing and destroying plans .
 
 
 ## Table of Contents
@@ -13,7 +13,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - [npm start](#npm-start)
   - [npm test](#npm-test)
   - [npm run build](#npm-run-build)
-  - [npm run eject](#npm-run-eject)
 
 
 ## Updating to New Releases
@@ -101,7 +100,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](#deployment) for more information.
 
-### `npm run eject`
+
 
 
 
